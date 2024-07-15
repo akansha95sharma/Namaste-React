@@ -1,0 +1,36 @@
+{
+  "name": "namaste-react-tutorial",
+  "version": "1.0.0",
+  "description": "This is a namaste react",
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akansha95sharma/Namaste-React.git"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react"
+  ],
+  "author": "akansha sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akansha95sharma/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/akansha95sharma/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist":[
+    "last 2 Chrome versions"
+  ]
+}
