@@ -57,3 +57,10 @@ Virtual dom is normal javascript object
 
 #Monolith:- 
 MicroServices:-
+
+# 2 types Routing in web apps
+- Client side Routing
+- Server Side Routing
+
+#Link tag is enclose the anchor tag link tag does not visible in dom.
+with link tag it doesn't refresh whole page that's why SPA works. 

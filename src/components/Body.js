@@ -2,6 +2,9 @@ import RestaurantCard from "./RestaurantCard";
 //import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Body = () =>{
     //Local State Variable - Super powerful Variable
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -206,7 +209,9 @@ const Body = () =>{
     //         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
     //     }
     // ];
-
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus == false)
+    return(<h1>Looks Like Your Internet Is Not Working!!!</h1>);
    // Conditional Reandering
    //console.log(listOfRestaurants);
     return listOfRestaurants.length === 0 ? ( <Shimmer /> ): (
@@ -230,7 +235,7 @@ const Body = () =>{
             </div>
             <div className="res-container">
             {
-                filteredRestaurant.map((restro) => (<RestaurantCard key={restro.info.id} resData={restro} />))
+                filteredRestaurant.map((restro) => (<Link key={restro.info.id} to={"/restaurants/"+ restro.info.id}><RestaurantCard resData={restro} /></Link>))
             }
             </div>
         </div>
