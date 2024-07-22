@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";   
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,8 @@ import { createBrowserRouter,RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import {UserContext} from "./utils/UserContext";
+
 //import Grocery from "./components/Grocery";
  // not using keys (not acceptable) <<< index as key <<< unique id's (best practices)
 // Chunking
@@ -19,11 +21,25 @@ import RestaurantMenu from "./components/RestaurantMenu";
 const Grocery = lazy(()=>import("./components/Grocery"));
 const About = lazy(()=>import("./components/About"));
 const AppLayout = () => {
+    const [userName,setUserName] = useState();
+    //authentication
+    useEffect(()=>{
+        const data = {
+            name:"Akansha Sharma"
+        };
+        setUserName(data.name);
+    },[])
+    console.log(UserContext.Provider);
     return (
+        
+        <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
+        
         <div className = "app">
         <Header />
         <Outlet />
         </div>
+        </UserContext.Provider>
+        
     )
 }
 const appRouter = createBrowserRouter([
