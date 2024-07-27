@@ -8,7 +8,11 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import {UserContext} from "./utils/UserContext";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+import Demo from "./components/Demo";
+import Demo2 from "./components/Demo2";
 //import Grocery from "./components/Grocery";
  // not using keys (not acceptable) <<< index as key <<< unique id's (best practices)
 // Chunking
@@ -31,7 +35,7 @@ const AppLayout = () => {
     },[])
     console.log(UserContext.Provider);
     return (
-        
+        <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
         
         <div className = "app">
@@ -39,8 +43,8 @@ const AppLayout = () => {
         <Outlet />
         </div>
         </UserContext.Provider>
-        
-    )
+        </Provider>
+    );
 }
 const appRouter = createBrowserRouter([
     {
@@ -66,6 +70,18 @@ const appRouter = createBrowserRouter([
             {
                 path:"/restaurants/:resId",
                 element: <RestaurantMenu />
+            },
+            {
+                path:"/cart",
+                element: <Cart />
+            },
+            {
+                path:"/demo",
+                element: <Demo/>  
+            },
+            {
+                path:"/demo2",
+                element: <Demo2/>  
             }
         ],
         errorElement:<Error/>

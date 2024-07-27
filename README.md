@@ -64,3 +64,36 @@ MicroServices:-
 
 #Link tag is enclose the anchor tag link tag does not visible in dom.
 with link tag it doesn't refresh whole page that's why SPA works. 
+
+When you hit the add button it dispatches an action and that action calls a function known as reducer to add that in cart.
+
+To read data from store we use selector(subscribing to the store).
+
+Add--->dispatch(action)--->reducer(fn())--->store(slice)--->selector(subscribed)---->update
+
+#Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice(cartSlice)
+- dispatch(action)
+- Selector
+
+#Types of testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End testing - e2e testing
+
+
+# Setting up testing in our app
+- Install react testing library
+- Installed jest
+- Installed babel dependencies
+- Configure Babel
+- Configure parcel config file to disable default babel transpilation
+- Jest configuration
+Jest - npx jest --init
+- Install jsdom library
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
+- Install @testing-library/jest-dom
